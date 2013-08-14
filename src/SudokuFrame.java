@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -62,7 +63,7 @@ public class SudokuFrame extends JFrame {
         //The next button/menu is solving a number depending on the instance variable list_node and the moves to the next node by increasing
         //list_node's value.
         super();
-        setSize(1024, 560);
+        setSize(1024, 520);
         setTitle("Sudoku Solver");
         setResizable(false);
         getContentPane().setBackground(Color.DARK_GRAY);
@@ -640,7 +641,9 @@ public class SudokuFrame extends JFrame {
         JPanel panel3 = new JPanel();
         panel3.setLayout(new GridLayout(9, 1));
         for(int i = 0; i < list.length; i++) {
-            list[i] = new JTextField(1);
+            list[i] = new JTextField();
+            list[i].setHorizontalAlignment(JTextField.CENTER);
+            list[i].setPreferredSize(new Dimension(20, 20));
             list[i].setEditable(false);
             list[i].setBackground(Color.WHITE);
             list[i].setFont(new Font("BOLD", Font.BOLD, 16));
@@ -694,7 +697,9 @@ public class SudokuFrame extends JFrame {
         board = new JTextField[10][9][9];
         for(int i = 0; i < board[0].length; i++) {
             for(int j = 0; j < board[0][0].length; j++) {
-                board[0][i][j] = new JTextField(1);
+                board[0][i][j] = new JTextField();
+                board[0][i][j].setPreferredSize(new Dimension(20, 20));
+                board[0][i][j].setHorizontalAlignment(JTextField.CENTER);
                 if(i < 3 && j < 3) {
                     board[0][i][j].setBackground(Color.GREEN);
                 }
@@ -719,8 +724,10 @@ public class SudokuFrame extends JFrame {
         for(int k = 1; k < board.length; k++) {
             for(int i = 0; i < board[0].length; i++) {
                 for(int j = 0; j < board[0][0].length; j++) {
-                    board[k][i][j] = new JTextField(1);
+                    board[k][i][j] = new JTextField();
                     board[k][i][j].setEditable(false);
+                    board[k][i][j].setPreferredSize(new Dimension(16, 16));
+                    board[k][i][j].setHorizontalAlignment(JTextField.CENTER);
                     if(i < 3 && j < 3) {
                         board[k][i][j].setBackground(Color.GREEN);
                     }
